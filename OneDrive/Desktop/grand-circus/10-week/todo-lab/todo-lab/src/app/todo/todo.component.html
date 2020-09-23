@@ -1,0 +1,27 @@
+<body>
+  <div class="mainContainer">
+    <H1>To-Do List</H1>
+    <h2>A place to store your todos</h2>
+    <ol>
+      <li
+        *ngFor="let todo of todos; index as i"
+        [ngClass]="{ completed: todo.completed }"
+      >
+        <div class="left">
+          <p>{{ i + 1 }}.</p>
+
+          <button class="completedButton" *ngIf="!todo.completed">
+            Complete</button
+          >{{ todo.task }}
+        </div>
+        <button class="buttonX">X</button>
+      </li>
+    </ol>
+    <div class="addDiv">
+      <form class="addForm">
+        <input id="addText" type="text" placeholder="Add your To-Do" />
+        <button class="addButton">ADD</button>
+      </form>
+    </div>
+  </div>
+</body>
