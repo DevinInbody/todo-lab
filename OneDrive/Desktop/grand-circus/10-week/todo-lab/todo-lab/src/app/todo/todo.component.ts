@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Todo } from './../interfaces/todo';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-todo',
@@ -7,6 +9,7 @@ import { Todo } from './../interfaces/todo';
   styleUrls: ['./todo.component.css'],
 })
 export class TodoComponent implements OnInit {
+  @Output() submitted = new EventEmitter<Todo>();
   todos: Todo[] = [
     { task: 'take out the garbage', completed: false },
     { task: 'laundry', completed: false },
@@ -15,7 +18,28 @@ export class TodoComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+  addTodoForm(form: NgForm) {
+    this.submitted.emit({
+      task: form.value.addTodo,
+      completed: false,
+    });
+  }
   handleCompleted(i: number): void {
     this.todos[i].completed = !this.todos[i].completed;
+  }
+  handleDelete(i: number) {
+    this.todos.splice(i, 1);
+  }
+  handleAdd(todos) {
+    this.todos.push({
+      task: todos.form.value.addTodo,
+      completed: false,
+    });
+    console.log(todos);
+    console.log(this.todos);
+  }
+  handleFilter(todos) {
+    this.todos.filter((x) => x.task === todos.form.value.filterTodo);
+    console.log(todos);
   }
 }
