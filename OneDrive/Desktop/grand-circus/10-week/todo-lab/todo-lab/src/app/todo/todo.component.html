@@ -9,6 +9,7 @@
         [(ngModel)]="filterTodo"
         id="addText"
         type="text"
+        class="typeText"
         placeholder="Filter Your Todos"
       />
     </form>
@@ -32,14 +33,15 @@
       </li>
     </ol>
     <div class="addDiv">
-      <form #addPost="ngForm" class="addForm">
+      <form #addPost="ngForm" class="addTodo">
         <input
-          (change)="handleFilter(filterPost)"
+          (click)="handleAdd(addTodo)"
           name="addTodo"
           [(ngModel)]="addTodo"
           id="addText"
           type="text"
           placeholder="Add your To-Do"
+          class="typeText"
         />
         <button (click)="handleAdd(addPost)" class="addButton">ADD</button>
       </form>

@@ -15,6 +15,7 @@ export class TodoComponent implements OnInit {
     { task: 'laundry', completed: false },
     { task: 'tutoring session', completed: true },
   ];
+  addTodo: string = '';
   constructor() {}
 
   ngOnInit(): void {}
@@ -38,8 +39,17 @@ export class TodoComponent implements OnInit {
     console.log(todos);
     console.log(this.todos);
   }
+  original = this.todos;
   handleFilter(todos) {
-    this.todos.filter((x) => x.task === todos.form.value.filterTodo);
-    console.log(todos);
+    if (todos.form.value.filterTodo === '') {
+      this.todos = this.original;
+      return this.todos;
+    } else {
+      const newFilter = this.todos.filter(
+        (x) => x.task === todos.form.value.filterTodo
+      );
+      this.todos = newFilter;
+      console.log(newFilter);
+    }
   }
 }
