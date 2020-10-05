@@ -1,0 +1,33 @@
+.mainContainer {
+  display: flex;
+  justify-content: center;
+}
+.postContainer {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid white;
+  width: 800px;
+  background-color: rgb(32, 252, 143);
+}
+.postHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: solid 0.5px rgb(63, 94, 90);
+  justify-content: space-between;
+}
+
+.postMain {
+  display: flex;
+  justify-content: center;
+}
+.profilePic {
+  width: 100px;
+  height: 100px;
+}
+.author {
+  font-weight: bold;
+}
+.title {
+  text-decoration: none;
+}

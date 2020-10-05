@@ -1,0 +1,16 @@
+<div class="header">
+  <h1>Fake Reddit</h1>
+  <h5>Like Reddit, Only Fake</h5>
+</div>
+<div class="postsContainer">
+  <app-post-component
+    *ngFor="let post of posts; index as i"
+    [post]="post"
+  ></app-post-component>
+</div>
+<div class="footer">
+  <h4>
+    Congrats! You've reached the end of the internet! Maybe get off the
+    computer. You should probably go outside.
+  </h4>
+</div>

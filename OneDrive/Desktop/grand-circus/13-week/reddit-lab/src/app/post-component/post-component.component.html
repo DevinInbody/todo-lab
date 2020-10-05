@@ -1,0 +1,19 @@
+<div class="mainContainer">
+  <div class="postContainer">
+    <div class="postHeader">
+      <p class="author">{{ post.data.author }}</p>
+      <h5 class="title">
+        <a href="{{ post.data.url }}">{{ post.data.title }}</a>
+      </h5>
+    </div>
+    <div class="postMain">
+      <a href="{{ post.data.url }}">
+        <img
+          src="{{ post.data.thumbnail }}"
+          alt="If the picture doesn't show, click here"
+          class="profilePic"
+      /></a>
+      <p class="seeMore"></p>
+    </div>
+  </div>
+</div>
